@@ -15,12 +15,18 @@ namespace EchoServer
         {
             Console.WriteLine("Hello!");
             TcpListener serverSocket = new TcpListener(IPAddress.Loopback,7);
+           
             serverSocket.Start();
-
             Console.WriteLine("server started witing for connection!");
-            DoClient(serverSocket);
-          
-          
+
+            while (true)
+            {
+                Task.Run(() =>
+                {
+                    DoClient(serverSocket);
+                });
+            }
+            
         }
 
         public static void DoClient(TcpListener socket)

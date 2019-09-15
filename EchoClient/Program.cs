@@ -6,7 +6,7 @@ namespace EchoClient
     {
         static void Main(string[] args)
         {
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(2000);
             Client client = new Client();
             client.Start();
         }
